@@ -1,12 +1,21 @@
 {
-  "id": "animesaturn",
-  "name": "AnimeSaturn",
-  "description": "AnimeSaturn è un provider di streaming online per anime sottotitolati e doppiati in italiano",
-  "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/main/manifest.json",
+  "id": "animeunity",
+  "name": "AnimeUnity",
+  "description": "AnimeUnity è un provider di streaming per anime sottotitolati e doppiati in italiano.",
+  "iconUrl": "https://github.com/cottonable/Ryu-preservation/blob/2f10226aa087154974a70c1ec78aa83a47daced9/Ryu/Assets.xcassets/Sources/AnimeUnity.imageset/apple-touch-icon.jpg?raw=true",
+  "manifestURI": "https://raw.githubusercontent.com/50n50/sources/main/animeunity/animeunity.json",
   "version": "1.0.0",
-  "author": "RubRix22",
-  "type": "onlinestream-provider",
-  "language": "typescript",
-  "lang": "it",
-  "payload": "class Provider { api = 'https://animesaturn.to'; getSettings() { return { episodeServers: ['Server 1', 'Server 2'], supportsDub: true }; } async search(query) { let normalizedQuery = this.normalizeQuery(query['query']); console.log('Normalized Query: ' + normalizedQuery); const url = `${this.api}/browser?keyword=${encodeURIComponent(normalizedQuery)}`; try { const data = await this._makeRequest(url); const $ = LoadDoc(data); const animes = []; $('div.aitem-wrapper>div.aitem').each((_, elem) => { const id = elem.find('a.poster').attr('href')?.slice(1) ?? ''; const title = elem.find('a.title').attr('title') ?? ''; const subOrDub = this.isSubOrDubOrBoth(elem); const url = `${this.api}/${id.slice(1)}`; const anime = { id: `${id}?dub=${query['dub']}`, url: url, title: title, subOrDub: subOrDub }; animes.push(anime); }); return animes; } catch (ex) { throw new Error(ex); } } }"
+  "author": {
+    "name": "sobet",
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQPQ1qIiALbM3xDWGsuJzu6ItaQGwb9ICRRw&s"
+  },
+  "type": "anime",
+  "language": "Italian",
+  "streamType": "mp4",
+  "quality": "720p",
+  "baseUrl": "https://animeunity.so",
+  "searchBaseUrl": "https://www.animeunity.so/archivio?title=%s",
+  "scriptUrl": "https://raw.githubusercontent.com/50n50/sources/main/animeunity/animeunity.js",
+  "streamAsyncJS": true,
+  "payload": "class Provider { api = 'https://animeunity.so'; getSettings() { return { episodeServers: ['Server 1', 'Server 2'], supportsDub: true }; } async search(query) { let normalizedQuery = this.normalizeQuery(query['query']); console.log('Normalized Query: ' + normalizedQuery); const url = `${this.api}/archivio?title=${encodeURIComponent(normalizedQuery)}`; try { const data = await this._makeRequest(url); const $ = LoadDoc(data); const animes = []; $('div.card').each((_, elem) => { const id = elem.find('a').attr('href')?.slice(1) ?? ''; const title = elem.find('a').text().trim(); const url = `${this.api}/${id}`; const anime = { id: id, url: url, title: title, subOrDub: 'sub' }; animes.push(anime); }); return animes; } catch (ex) { throw new Error(ex); } } }"
 }
