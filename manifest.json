@@ -2,7 +2,7 @@
   "id": "animesaturn",
   "name": "AnimeSaturn",
   "description": "AnimeSaturn è un provider di streaming online per anime sottotitolati e doppiati in italiano",
-  "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/main/manifest.json",
+  "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/refs/heads/main/manifest.json",
   "version": "1.0.0",
   "author": "RubRix22",
   "type": "onlinestream-provider",
