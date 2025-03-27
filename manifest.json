@@ -4,7 +4,7 @@
     "description": "My Extension Description",
     "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/refs/heads/main/manifest.json",
     "version": "1.0.0",
-    "author": "Author Name",
+    "author": "RubRix22",
     "type": "onlinestream-provider",
     "language": "typescript",
     "lang": "it",
