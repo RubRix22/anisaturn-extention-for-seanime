@@ -1,8 +1,8 @@
 {
-  "id": ""AnimeUnity",
-  "name": ""AnimeUnity",
-  "description": ""AnimeUnity",
-  "manifestURI": "https://raw.githubusercontent.comRubRix22/anisaturn-extention-for-seanime/main/manifest.json",
+  "id": "AnimeUnity",
+  "name": "AnimeUnity",
+  "description": "AnimeUnity",
+  "manifestURI": "https://github.com/RubRix22/anisaturn-extention-for-seanime/blob/main/manifest.json",
   "version": "1.0.0",
   "author": "RubRix22",
   "type": "onlinestream-provider",
