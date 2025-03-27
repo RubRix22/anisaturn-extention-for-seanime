@@ -2,11 +2,11 @@
     "id": "my-original-extension-id",
     "name": "My Extension Name",
     "description": "My Extension Description",
-    "manifestURI": "",
+    "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/refs/heads/main/manifest.json",
     "version": "1.0.0",
     "author": "Author Name",
-    "type": "",
-    "language": "",
-    "lang": "",
+    "type": "onlinestream-provider",
+    "language": "typescript",
+    "lang": "it",
     "payload": "class Provider implements Provider {\n\n    // Get the provider's settings\n    getSettings(): Settings {\n        return {\n            episodeServers: [\"server1\", \"server2\"],\n            supportsDub: false, \n        }\n    }\n\n    // Search for anime titles\n    async search(query: SearchOptions): Promise<SearchResult[]> {\n        const searchUrl = `https://www.animeunity.so/archivio?title=${encodeURIComponent(query.query)}`;\n        return [{\n            id: \"1\",\n            title: \"Anime Title\",\n            url: searchUrl,\n            subOrDub: \"sub\",\n        }];\n    }\n\n    // Find episodes for a specific anime ID\n    async findEpisodes(id: string): Promise<EpisodeDetails[]> {\n        const episodesUrl = `https://www.animeunity.so/archivio/${id}`;\n        return [{\n            id: \"1\",\n            number: 1,\n            url: episodesUrl,\n            title: \"Episode Title\",\n        }];\n    }\n\n    // Find the stream for a specific episode and server\n    async findEpisodeServer(episode: EpisodeDetails, _server: string): Promise<EpisodeServer> {\n        let server = \"server1\";\n        if (_server !== \"default\") server = _server;\n        return {\n            server: server,\n            headers: {},\n            videoSources: [{\n                url: \"https://animeunity.so/path/to/video/stream.mp4\",\n                type: \"mp4\",\n                quality: \"720p\",\n                subtitles: [{\n                    id: \"1\",\n                    url: \"https://animeunity.so/path/to/subtitles/subs.vtt\",\n                    language: \"it\",\n                    isDefault: true,\n                }],\n            }],\n        };\n    }\n}"
 }
