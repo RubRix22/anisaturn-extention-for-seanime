@@ -2,7 +2,7 @@
   "id": "animeunity",
   "name": "AnimeUnity",
   "description": "AnimeUnity is an online streaming provider for subbed/dubbed animes in Italian.",
-  "manifestURI": "",
+  "manifestURI": "https://raw.githubusercontent.com/RubRix22/anisaturn-extention-for-seanime/refs/heads/main/manifest.json",
   "version": "1.0.0",
   "author": "YourName",
   "type": "onlinestream-provider",
